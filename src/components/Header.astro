@@ -1,0 +1,34 @@
+---
+import ThemeIcon from "./ThemeIcon.astro";
+import { IoMdHome, IoIosBriefcase  } from "react-icons/io";
+import { IoDocumentText } from "react-icons/io5";
+---
+
+<header class="sticky top-0 z-50 backdrop-blur-md">
+    <nav class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <ul class="flex items-center justify-between h-16">
+            <li class="flex items-center">
+                <a href="#inicio" class="flex justify-center items-center gap-1">
+                    <IoMdHome />
+                    <p>Inicio</p>
+                </a>
+            </li>
+            <li class="flex items-center">
+                <a href="#stats" class="flex justify-center items-center gap-1">
+                    <IoIosBriefcase />
+                    <p>Proyectos</p>
+                </a>
+            </li>
+            <li class="flex items-center">
+                <a href="#proyectos" class="flex justify-center items-center gap-1">
+                    <IoDocumentText />
+                    <p>Proyectos</p>
+                </a>
+            </li>
+            <li class="flex items-center">
+                <ThemeIcon/>
+            </li>
+        </ul>
+        
+    </nav>
+</header>

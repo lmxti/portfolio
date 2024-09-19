@@ -1,0 +1,38 @@
+---
+import ProjectCard from "./ProyectCard.astro";
+import { Octokit } from "@octokit/rest";
+
+// Función para obtener los repositorios
+const getRepos = async () => {
+
+  const octokit = new Octokit({auth: import.meta.env.KEY_GITHUB});
+
+  // Define el nombre del usuario u organización de GitHub
+  const githubUsername = 'lmxti';
+
+  const response = await octokit.repos.listForUser({
+    username: githubUsername,
+    per_page: 10, // Número de repositorios que deseas obtener
+  });
+
+  return response.data.map(repo => ({
+    title: repo.name,
+    description: repo.description || "No description available",
+    slug: repo.name,
+    language: repo.language || "Unknown",
+    link: repo.html_url,
+    sourceCode: repo.html_url
+  }));
+};
+
+// Ejecutar la función y obtener los datos de los repositorios
+const projects = await getRepos();
+
+---
+
+<section class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+  <h3 class='text-2xl font-bold mb-6 text-gray-800 dark:text-white text-center'>Estadisticas GitHub</h3>
+	<section class="mb-24 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-2 lg:gap-5">
+		{projects.map((project) => <ProjectCard project={project} />)}
+	</section>
+</section>

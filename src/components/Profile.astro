@@ -1,0 +1,60 @@
+---
+import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
+
+import { Octokit } from "@octokit/rest";
+
+
+async function fetchGitHubAvatarUrl() {
+  // Instancia de cliente `Octokit` para interactuar con la API de GitHub
+  const octokit = new Octokit({auth: import.meta.env.KEY_GITHUB});
+
+  // Nombre de usuario utilizado para obtener la data
+  const username = "lmxti";
+
+  try {
+    // Solicitud a la API de GitHub para obtener detalles del usuario `username`
+    const { data } = await octokit.rest.users.getByUsername({ username });
+    
+    // Retornar la URL del avatar
+    return data.avatar_url;
+  } catch (error) {
+    console.error("Error -> fetchGitHubAvatarUrl: ", error);
+    return null;
+  }
+}
+
+const avatarUrl = await fetchGitHubAvatarUrl();
+---
+
+
+<section class="bg-white dark:bg-gray-800 shadow-lg px-10 py-5 rounded-lg transition-colors duration-300 mt-10">
+    <div class="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
+        <!-- Imagen de perfil  + redes sociales -->
+        <div class="flex flex-col">
+            <!-- Imagen -->
+            <div class="flex items-center relative -mt-16 w-48">
+                <img class="bg-gray-200 rounded-full border-8 dark:border-[#030917] " src=`${avatarUrl}`>
+            </div>
+            <!-- Enlaves de redes-->
+            <div class="mt-4 flex justify-center space-x-4">
+                <!-- Enlace perfil de github -->
+                <a href="https://github.com/lmxti" target='_blank' class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-300">
+                    <FaGithubSquare className="text-5xl md:text-3xl"/>
+                </a>
+                <!-- Enlace perfil de linkedin -->
+                <a href="https://linkedin.com/in/lmxti" target='_blank' class="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300">
+                    <FaLinkedin className="text-5xl md:text-3xl"/>
+                </a>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------- Descripcion ---------------------------------------------------------------------------------->
+        <div  class="text-center sm:text-left">
+            <!-- Descripcion de perfil -->
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-1">Matías San Martín M.</h2>
+            <p class="text-blue-600 dark:text-blue-400 mb-4">@lmxti</p>
+            <p class="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+                Ingeniero Civil Informático, comprometido y motivado al aprendizaje continuo y permanente para aprender y adquirir conocimientos para crecer profesionalmente,
+                orientado al diseño y resolución de problemas de manera colaborativa, responsable, ética y autónoma.
+        </div>
+    </div>
+</section>

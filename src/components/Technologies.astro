@@ -1,0 +1,37 @@
+---
+import { IoCodeOutline, IoColorPaletteOutline, IoLogoNodejs, IoLogoGithub, IoLogoCss3  } from "react-icons/io5";
+import { SiMongodb, SiExpress, SiNextdotjs, SiTailwindcss, SiAstro  } from "react-icons/si";
+import { FaDatabase, FaHtml5, FaJs, FaSass, FaGit  } from "react-icons/fa";
+
+const techs = [
+  { icon: FaHtml5 , label: "HTML" },
+  { icon: IoLogoCss3 , label: "CSS" },
+  { icon: FaSass , label: "Sass" },
+  { icon: FaJs, label: "JavaScript" },
+  { icon: SiTailwindcss, label: "TailwindCSS" },
+  { icon: IoLogoNodejs, label: "Node.js" },
+  { icon: FaGit, label: "Git" },
+  { icon: IoLogoGithub, label: "GitHub" },
+  { icon: SiMongodb, label: "MongoDB" },
+  { icon: SiExpress, label: "Express" },
+  { icon: SiNextdotjs, label: "Next.js" },
+  { icon: SiAstro, label: "Astro" },
+  // { icon: FaDatabase, label: "SQL" },
+];
+---
+
+<section class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg md:col-span-2 lg:col-span-3 transition-all duration-300 hover:shadow-xl flex-grow">
+  <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white text-center">Tecnologías</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4  gap-4">
+        { 
+            techs.map(({ icon: Icon, label }) => (
+                <div class="flex flex-col items-center py-4 rounded-lg bg-gray-100 dark:bg-gray-700 transition-all duration-300 hover:bg-gray-200 dark:hover:bg-gray-600 hover:scale-105 transform">
+                    <Icon size={32}/>
+                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300 text-center mt-2">
+                      {label}
+                    </span>
+                </div>
+            ))
+        }
+  </div>
+</section>
