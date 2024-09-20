@@ -9,7 +9,7 @@ import Header from "../components/Header.astro";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -30,7 +30,7 @@ import Header from "../components/Header.astro";
   </body>
 </html>
 
-<style >
+<style is:global>
   html.dark {
     background-color: #030917;
     color: #fff;
@@ -39,4 +39,10 @@ import Header from "../components/Header.astro";
   .dark .nav-links a {
     color: #fff;
   }
+
+  html{
+    scrollbar-width: thin;
+    scrollbar-color: #505464 #202c34 ;
+  }
+
 </style>

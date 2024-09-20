@@ -1,34 +1,70 @@
 ---
 import ThemeIcon from "./ThemeIcon.astro";
-import { IoMdHome, IoIosBriefcase  } from "react-icons/io";
+import { IoMdHome, IoMdMenu } from "react-icons/io";
 import { IoDocumentText } from "react-icons/io5";
+import { AiFillFund, AiFillMerge } from "react-icons/ai";
 ---
 
 <header class="sticky top-0 z-50 backdrop-blur-md">
     <nav class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <ul class="flex items-center justify-between h-16">
-            <li class="flex items-center">
-                <a href="#inicio" class="flex justify-center items-center gap-1">
-                    <IoMdHome />
-                    <p>Inicio</p>
-                </a>
-            </li>
-            <li class="flex items-center">
-                <a href="#stats" class="flex justify-center items-center gap-1">
-                    <IoIosBriefcase />
-                    <p>Proyectos</p>
-                </a>
-            </li>
-            <li class="flex items-center">
-                <a href="#proyectos" class="flex justify-center items-center gap-1">
-                    <IoDocumentText />
-                    <p>Proyectos</p>
-                </a>
-            </li>
-            <li class="flex items-center">
-                <ThemeIcon/>
-            </li>
-        </ul>
+
+        <!-- Barra de navegacion visible en pantallas grandes -->
+        <div class="flex items-center justify-between h-16">
+            <div class="flex items-center">
+                <button class="nav-link flex justify-center items-center gap-1" data-target="inicio">
+                    <IoMdHome size={24}/>
+                    <p class="hidden sm:block">Inicio</p>
+                </button>
+            </div>
+            <div class="hidden sm:flex items-center space-x-8">
+                <button class="nav-link flex justify-center items-center gap-1" data-target="stats">
+                    <AiFillFund size={24} />
+                    <p>Estadisticas</p>
+                </button>
+                <button class="nav-link flex justify-center items-center gap-1" data-target="proyectos">
+                    <AiFillMerge size={24} />
+                    <p>Repositorios</p>
+                </button>
+                <button class="nav-link flex justify-center items-center gap-1" data-target="resume">
+                    <IoDocumentText size={24} />
+                    <p>Resumen</p>
+                </button>
+            </div>
+            <div>
+                <ThemeIcon />
+            </div>
+            
+            <div class="sm:hidden">
+                <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-600">
+                    <IoMdMenu size={24} />
+                </button>
+            </div>
+        </div>
         
+        <!-- Barra de navegacion en pantallas de moviles/celulares -->
+        <div id="mobile-menu" class="hidden sm:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <button class="nav-link block w-full px-3 py-2 text-base font-medium text-center rounded-lg bg-gray-200" data-target="stats">
+                    <p>Estadisticas</p>
+                </button>
+                <button class="nav-link block w-full px-3 py-2 text-base font-medium text-center rounded-lg bg-gray-200" data-target="proyectos">
+                    <p>Repositorios</p>
+                </button>
+                <button class="nav-link block w-full px-3 py-2 text-base font-medium text-center rounded-lg bg-gray-200" data-target="resume">
+                    <p>Resumen</p>
+                </button>
+            </div>
+        </div>
     </nav>
 </header>
+
+<script>
+    import { setupSmoothScroll } from "../scripts/smoothScroll";
+    import { menuButton } from "../scripts/menuButton";
+    setupSmoothScroll();
+    menuButton();
+</script>
+
+<style>
+    /* Add any additional styles here */
+</style>

@@ -7,6 +7,7 @@ const getRepos = async () => {
 
   const octokit = new Octokit({auth: import.meta.env.KEY_GITHUB});
 
+
   // Define el nombre del usuario u organización de GitHub
   const githubUsername = 'lmxti';
 
@@ -15,24 +16,41 @@ const getRepos = async () => {
     per_page: 10, // Número de repositorios que deseas obtener
   });
 
-  return response.data.map(repo => ({
-    title: repo.name,
-    description: repo.description || "No description available",
-    slug: repo.name,
-    language: repo.language || "Unknown",
-    link: repo.html_url,
-    sourceCode: repo.html_url
-  }));
+  const repos = await Promise.all(
+    response.data.map(async (repo) => {
+      // Obtencion de lenguajes utilizados por repositorio a tráves del método `listLanguages` con los parámetros de `owner` y `repo`
+      const languagesResponse = await octokit.repos.listLanguages({
+        owner: githubUsername,
+        repo: repo.name,
+      });
+
+      /** Extraccion y almacenamiento en variable `languages` del objeto que tonctiene los lenguajes utilizados por repositorio,
+      cada clave (key) representa un lenguaje y el valor es el número de líneas de código escritas en ese lenguaje. El método `join`
+      concatena en un solo string los lenguajes utilizados.*/
+      const languages = Object.keys(languagesResponse.data).join(", ");
+
+      return {
+        title: repo.name,
+        description: repo.description || "No description available",
+        slug: repo.name,
+        language: languages || "Sin información", // Usamos el string de lenguajes
+        link: repo.html_url,
+        sourceCode: repo.html_url,
+      };
+    })
+  );
+  return repos;
 };
 
 // Ejecutar la función y obtener los datos de los repositorios
 const projects = await getRepos();
 
+
 ---
 
 <section class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
-  <h3 class='text-2xl font-bold mb-6 text-gray-800 dark:text-white text-center'>Estadisticas GitHub</h3>
-	<section class="mb-24 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-2 lg:gap-5">
+  <h3 class='text-2xl font-bold mb-6 text-gray-800 dark:text-white text-center'>Repositorios</h3>
+	<section class="mb-24 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
 		{projects.map((project) => <ProjectCard project={project} />)}
 	</section>
 </section>

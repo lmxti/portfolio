@@ -1,6 +1,6 @@
 ---
 import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
-
+import { MdEmail } from "react-icons/md";
 import { Octokit } from "@octokit/rest";
 
 
@@ -27,7 +27,7 @@ const avatarUrl = await fetchGitHubAvatarUrl();
 ---
 
 
-<section class="bg-white dark:bg-gray-800 shadow-lg px-10 py-5 rounded-lg transition-colors duration-300 mt-10">
+<section class="bg-white dark:bg-gray-800 shadow-lg px-10 py-4 rounded-lg transition-colors duration-300 ">
     <div class="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
         <!-- Imagen de perfil  + redes sociales -->
         <div class="flex flex-col">
@@ -51,10 +51,33 @@ const avatarUrl = await fetchGitHubAvatarUrl();
         <div  class="text-center sm:text-left">
             <!-- Descripcion de perfil -->
             <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-1">Matías San Martín M.</h2>
-            <p class="text-blue-600 dark:text-blue-400 mb-4">@lmxti</p>
+            <p class="mb-4">Chile, Concepción</p>
             <p class="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
                 Ingeniero Civil Informático, comprometido y motivado al aprendizaje continuo y permanente para aprender y adquirir conocimientos para crecer profesionalmente,
                 orientado al diseño y resolución de problemas de manera colaborativa, responsable, ética y autónoma.
+            </p>
+            <div class="flex items-center gap-2 text-center justify-center md:justify-end my-4">
+                <MdEmail className="text-5xl md:text-3xl"/>
+                <p id="copy-text">mvtias.smm@gmail.com</p>
+                <button id="copy-btn" class="bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 px-2 py-1 rounded-lg">Copiar</button>
+            </div>
         </div>
     </div>
 </section>
+
+<script>
+    document.getElementById("copy-btn")?.addEventListener('click', () => {
+        const texto: string = document.getElementById("copy-text")?.innerText || "";
+        
+        navigator.clipboard.writeText(texto).then(() => {
+            const copyButton = document.getElementById("copy-btn") as HTMLButtonElement;
+            copyButton.innerText = "¡Copiado!";
+
+            setTimeout(() => {
+                copyButton.innerText = "Copiar";
+            }, 2000); // Cambio luego de 2000 milisegundos(2 segundos)
+        }).catch((err: any) => {
+            console.error('Error al copiar el texto: ', err);
+        });
+    });
+</script>

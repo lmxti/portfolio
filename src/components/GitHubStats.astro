@@ -50,7 +50,6 @@ async function fetchGitHubData() {
     
     // Solicitud a la API de GitHub para botener lista de repositorios públicos del usuario `username`
     const { data: repos } = await octokit.rest.repos.listForUser({ username, per_page: 100});
-    console.log(repos);
     
 
     // Cálculo de números totales de `Stars` (Estrellas) que han recibido los repositorios del usuario `username`
@@ -105,5 +104,6 @@ const { stats, languageData  } = await fetchGitHubData();
         }
   </div>
   <!-- Estadisticas de perfil -->
+  <h3 class='text-xl font-bold mb-6 text-gray-800 dark:text-white text-start'>Lenguajes utilizados</h3>
   <LanguageChart client:load languageData={languageData} />
 </section>
