@@ -1,11 +1,13 @@
 ---
+import Header from "../components/Header.astro";
+
+// Declara la interfaz Props para usar en el componente
 interface Props {
   title: string;
 }
 
+// Obtén las props de Astro
 const { title } = Astro.props;
-
-import Header from "../components/Header.astro";
 ---
 
 <!doctype html>
@@ -44,5 +46,4 @@ import Header from "../components/Header.astro";
     scrollbar-width: thin;
     scrollbar-color: #505464 #202c34 ;
   }
-
 </style>
