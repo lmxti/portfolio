@@ -4,6 +4,6 @@ import react from '@astrojs/react';
 
 export default defineConfig({
   site: 'https://lmxti.github.io',
-  base: '/',
+  base: '/portfolio/',
   integrations: [tailwind(), react()]
 });
