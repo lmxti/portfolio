@@ -87,7 +87,7 @@ const { stats, languageData  } = await fetchGitHubData();
 ---
 
 <section class='bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg'>
-  <h3 class='text-2xl font-bold mb-6 text-gray-800 dark:text-white text-center'>Estadisticas GitHub</h3>
+  <h3 class='text-2xl font-bold mb-6 text-gray-800 dark:text-white text-center select-none  tracking-widest'>Estadisticas GitHub</h3>
   <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6"> 
       <!-- Numeros de perfil -->
         {
@@ -104,6 +104,6 @@ const { stats, languageData  } = await fetchGitHubData();
         }
   </div>
   <!-- Estadisticas de perfil -->
-  <h3 class='text-xl font-bold mb-6 text-gray-800 dark:text-white text-start'>Lenguajes utilizados</h3>
+  <h3 class='text-xl font-bold mb-6 text-gray-800 dark:text-white text-start select-none'>% Lenguajes utilizados</h3>
   <LanguageChart client:load languageData={languageData} />
 </section>

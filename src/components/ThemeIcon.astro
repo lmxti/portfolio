@@ -23,11 +23,24 @@
   }
 
   :global(.dark) .sun {
-    fill: black;
+    fill: transparent;
   }
   :global(.dark) .moon {
     fill: white;
   }
+
+  @keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate {
+  animation: rotate 0.5s ease-in-out;
+}
 </style>
 
 <script is:inline>
@@ -51,10 +64,18 @@
 
   const handleToggleClick = () => {
     const element = document.documentElement;
+    const button = document.getElementById("themeToggle");
+
     element.classList.toggle("dark");
+    button.classList.add("rotate");
 
     const isDark = element.classList.contains("dark");
     localStorage.setItem("theme", isDark ? "dark" : "light");
+
+    // Remueve la clase 'rotate' después de que termine la animación (0.5 segundos)
+    setTimeout(() => {
+      button.classList.remove("rotate");
+    }, 500); // el mismo tiempo que dura la animación
   };
 
   document

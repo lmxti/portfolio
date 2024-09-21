@@ -13,9 +13,9 @@ interface Project {
 const { project } = Astro.props as { project: Project };
 ---
 
-<div class=" from-slate-200 to-gray-50 bg-gradient-to-br  dark:from-gray-600 dark:to-gray-700 rounded-lg p-6 shadow-lg">
+<div class=" from-gray-100 to-gray-100 bg-gradient-to-br  dark:from-gray-600 dark:to-gray-700 rounded-lg p-6 shadow-lg">
   <div class="px-6 py-4 flex-grow">
-    <div class="mb-2 text-xl font-bold text-black dark:text-gray-300 truncate text-ellipsis">{project.title}</div>
+    <div class="mb-2 text-xl font-bold text-neutral-600 dark:text-gray-300 truncate text-ellipsis">{project.title}</div>
     <p class="text-sm text-gray-800 dark:text-gray-300">{project.description}</p>
   </div>
 
@@ -23,11 +23,11 @@ const { project } = Astro.props as { project: Project };
   
   <!-- Seccion de tecnologias/lenguajes utilizados -->
   <div class="px-6 py-2">
-    <p class="mb-2 text-xs text-gray-700 dark:text-gray-400 font-semibold">Tecnologías</p>
+    <p class="mb-2 text-xs text-gray-700 dark:text-gray-400 font-semibold select-none">Tecnologías</p>
     <div class="flex flex-wrap gap-2">
       { project.language.split(",")
           .map((lang) => (
-            <span class="rounded-full bg-gray-600 text-white px-2 py-1 text-xs dark:bg-indigo-200 dark:text-gray-800">
+            <span class="select-none rounded-full bg-neutral-500 hover:bg-neutral-700 text-white px-2 py-1 text-xs dark:bg-[#1a202c] dark:hover:bg-[#030917] dark:text-gray-300">
               {lang.trim()}
             </span>
           ))
@@ -40,8 +40,8 @@ const { project } = Astro.props as { project: Project };
   <!-- Seccion de enlaces de proyecto -->
   <div class="flex items-end justify-end px-6 py-4">
     { project.sourceCode && (
-        <a class="flex items-center text-gray-800 hover:underline dark:text-blue-400 gap-1" target="_blank" href={project.sourceCode}>
-          <IoLogoGithub /> Ver repositorio
+        <a class="text-base flex items-center text-gray-800 hover:underline dark:text-blue-400 gap-1" target="_blank" href={project.sourceCode}>
+          <IoLogoGithub /> Más información
         </a>
       )
     }

@@ -13,21 +13,21 @@ import { AiFillFund, AiFillMerge } from "react-icons/ai";
             <div class="flex items-center">
                 <button class="nav-link flex justify-center items-center gap-1" data-target="inicio">
                     <IoMdHome size={24}/>
-                    <p class="hidden sm:block">Inicio</p>
+                    <p class="select-none hidden sm:block">Inicio</p>
                 </button>
             </div>
             <div class="hidden sm:flex items-center space-x-8">
                 <button class="nav-link flex justify-center items-center gap-1" data-target="stats">
                     <AiFillFund size={24} />
-                    <p>Estadisticas</p>
+                    <p class="select-none">Estadisticas</p>
                 </button>
                 <button class="nav-link flex justify-center items-center gap-1" data-target="proyectos">
                     <AiFillMerge size={24} />
-                    <p>Repositorios</p>
+                    <p class="select-none">Repositorios</p>
                 </button>
                 <button class="nav-link flex justify-center items-center gap-1" data-target="resume">
                     <IoDocumentText size={24} />
-                    <p>Resumen</p>
+                    <p class="select-none">Resumen</p>
                 </button>
             </div>
             <div>
@@ -44,14 +44,14 @@ import { AiFillFund, AiFillMerge } from "react-icons/ai";
         <!-- Barra de navegacion en pantallas de moviles/celulares -->
         <div id="mobile-menu" class="hidden sm:hidden">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <button class="nav-link block w-full px-3 py-2 text-base font-medium text-center rounded-lg bg-gray-200" data-target="stats">
-                    <p>Estadisticas</p>
+                <button class="nav-link block w-full px-3 py-2 text-base font-medium text-center rounded-lg bg-gray-200 dark:bg-gray-800 " data-target="stats">
+                    <p class="select-none">Estadisticas</p>
                 </button>
-                <button class="nav-link block w-full px-3 py-2 text-base font-medium text-center rounded-lg bg-gray-200" data-target="proyectos">
-                    <p>Repositorios</p>
+                <button class="nav-link block w-full px-3 py-2 text-base font-medium text-center rounded-lg bg-gray-200 dark:bg-gray-800 " data-target="proyectos">
+                    <p class="select-none">Repositorios</p>
                 </button>
-                <button class="nav-link block w-full px-3 py-2 text-base font-medium text-center rounded-lg bg-gray-200" data-target="resume">
-                    <p>Resumen</p>
+                <button class="nav-link block w-full px-3 py-2 text-base font-medium text-center rounded-lg bg-gray-200 dark:bg-gray-800 " data-target="resume">
+                    <p class="select-none">Resumen</p>
                 </button>
             </div>
         </div>

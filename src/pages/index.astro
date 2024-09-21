@@ -4,15 +4,16 @@ import Profile from '../components/Profile.astro';
 import GitHubStats from '../components/GitHubStats.astro';
 import Technologies from '../components/Technologies.astro';
 import Projects from '../components/Projects.astro';
+import Resume from '../components/Resume.astro';
 ---
 
 <Layout title="Matias San Martin M.">
-  <main>
+  <main class="space-y-4">
     <div id="inicio">
       <Profile />
     </div>
     
-    <div id="stats" class="flex flex-col md:flex-row space-x-0 md:space-x-4 space-y-4 md:space-y-0 my-4">
+    <div id="stats" class="flex flex-col md:flex-row space-x-0 md:space-x-4 space-y-4 md:space-y-0">
       <GitHubStats />
       <Technologies />
     </div>
@@ -21,8 +22,8 @@ import Projects from '../components/Projects.astro';
       <Projects />
     </div>
 
-    <div id="resume">
-      <!-- Contenido adicional aquí -->
+    <div id="resume" class="">
+      <Resume/>
     </div>
 
   </main>

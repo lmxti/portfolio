@@ -27,22 +27,22 @@ const avatarUrl = await fetchGitHubAvatarUrl();
 ---
 
 
-<section class="bg-white dark:bg-gray-800 shadow-lg px-10 py-4 rounded-lg transition-colors duration-300 ">
+<section class="bg-white dark:bg-gray-800 shadow-lg px-10 py-4 rounded-lg">
     <div class="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
         <!-- Imagen de perfil  + redes sociales -->
         <div class="flex flex-col">
             <!-- Imagen -->
-            <div class="flex items-center relative -mt-16 w-48">
-                <img class="bg-gray-200 rounded-full border-8 dark:border-[#030917] " src=`${avatarUrl}`>
+            <div class="flex items-center relative -mt-14 w-48 select-none">
+                <img class="bg-gray-50 rounded-full border-8 dark:border-[#030917] select-none" src=`${avatarUrl}`>
             </div>
             <!-- Enlaves de redes-->
             <div class="mt-4 flex justify-center space-x-4">
                 <!-- Enlace perfil de github -->
-                <a href="https://github.com/lmxti" target='_blank' class="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-300">
+                <a href="https://github.com/lmxti" target='_blank' class="text-gray-700 dark:text-gray-400 hover:text-indigo-800 dark:hover:text-white transition-colors duration-300">
                     <FaGithubSquare className="text-5xl md:text-3xl"/>
                 </a>
                 <!-- Enlace perfil de linkedin -->
-                <a href="https://linkedin.com/in/lmxti" target='_blank' class="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300">
+                <a href="https://linkedin.com/in/lmxti" target='_blank' class="text-gray-700 dark:text-gray-400 hover:text-blue-600 dark:hover:text-white transition-colors duration-300">
                     <FaLinkedin className="text-5xl md:text-3xl"/>
                 </a>
             </div>
@@ -56,10 +56,12 @@ const avatarUrl = await fetchGitHubAvatarUrl();
                 Ingeniero Civil Informático, comprometido y motivado al aprendizaje continuo y permanente para aprender y adquirir conocimientos para crecer profesionalmente,
                 orientado al diseño y resolución de problemas de manera colaborativa, responsable, ética y autónoma.
             </p>
-            <div class="flex items-center gap-2 text-center justify-center md:justify-end my-4">
-                <MdEmail className="text-5xl md:text-3xl"/>
-                <p id="copy-text">mvtias.smm@gmail.com</p>
-                <button id="copy-btn" class="bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 px-2 py-1 rounded-lg">Copiar</button>
+            <div class="flex md:justify-end gap-2 flex-col md:flex-row">
+                <div class="flex justify-center items-center gap-2">
+                    <MdEmail className="text-5xl md:text-3xl"/>
+                    <p id="copy-text">mvtias.smm@gmail.com</p>
+                </div>
+                <button id="copy-btn" class="bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 px-4 py-2 md:py-1 rounded-lg">Copiar</button>
             </div>
         </div>
     </div>
