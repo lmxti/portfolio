@@ -12,7 +12,7 @@ export const proyects = [
     descripcion: "Solución IoT completa para el monitoreo en tiempo real de parámetros ambientales.",
     tecnologias: ["Node.js", "Express.js", "MongoDB", "React", "React Native", "TailwindCSS"],
     imagenes: ["/RedSocial.png"],
-    categoria: "IoT & Monitoreo",
+    categoria: "Platform",
     enlace: "https://github.com/lmxti/RedSocial"
   },
   {
@@ -20,7 +20,7 @@ export const proyects = [
     descripcion: "Solución IoT completa para el monitoreo en tiempo real de parámetros ambientales.",
     tecnologias: ["Node.js", "Express.js", "MongoDB", "React", "React Native", "TailwindCSS"],
     imagenes: ["/RedSocial3.png"],
-    categoria: "IoT & Monitoreo",
+    categoria: "Platform",
     enlace: "https://github.com/lmxti/RedSocial_ReactNative"
   },
   {
@@ -36,15 +36,15 @@ export const proyects = [
     descripcion: "Proyecto con fines de aprendizaje, tipo chatbot + rag",
     tecnologias: ["Python", "Langchain","Streamlit", "llm"],
     imagenes: ["/chatpdf.png"],
-    categoria: "",
-    enlace: ""
+    categoria: "ChatBot",
+    enlace: "https://github.com/lmxti/chatbot_rag"
   },
   {
-    name: "Proyecto en desarrollo",
-    descripcion: "Proyecto en desarrollo que será agregado en proxima actualización",
-    tecnologias: [],
-    imagenes: ["/proximamente.png"],
-    categoria: "",
-    enlace: ""
+    name: "ViaTest",
+    descripcion: "Aplicación Web FullStack destinado al aprendizaje del contenido teorico del examen de conduccion en Chile",
+    tecnologias: ["Angular", "TypeScript", "TailwindCSS", "Express.js", "MongoDB", "Node.js", "PostgreSQL"],
+    imagenes: ["/ViaTest.png"],
+    categoria: "Platform",
+    enlace: "https://github.com/lmxti/ViaTest"
   },
 ];
